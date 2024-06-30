@@ -102,5 +102,46 @@ First Scene:
             _> position
                 > has x, y, z properties
                 > Three.js considers the forward/backward axis to be "z"
+                > NOTE: the orientation of axis can be different. It all depends on the view of Camera
             _> rotation
             _> scale
+                > When you scale an object, you are effectively multiplying its dimensions by the scale factor.
+            _> quaternion
+
+        > But which all objects/classes can we apply these properties on?
+            -> All the classes that descend/inherit from the Object3D possess those properties like "PerspectiveCamera", "Mesh" etc.
+
+            -> To checkout this inheritance, look at the top of Three.js documentation
+
+        > IMP NOTE: you can change/play around with object properties ('position', 'rotation', etc) even after "adding" that object into the scene. 
+            -> BUT!!! NOT AFTER "render"
+
+        > "position" inherit from 'Vector3' which has many useful methods apart from just "x", "y", "z"
+
+            example:
+            _> mesh.position.length()
+            _> mesh.position.distanceTo(camera.position)
+            _> mesh.position.normalize()
+
+        > "AxesHelper()": An axis object to visualize the 3 axes in a simple way. 
+
+        > To ROTATE OBJECTS:
+            > with "rotation" or with "quaternion"
+
+            _> "rotation" inherit from 'Euler'
+
+            _> "quaternion" is another way to represent rotation, which avoids gimbal lock
+                > more mathematical way
+
+        > "object.lookAt(new THREE.Vector3(0, -1, 0))"
+            _> this rotates the object so that its "-z" faces the target you provided
+            _> NOTE: target must be a Vector3
+
+    - Scene Graph & Group
+        > Use cases of Group:
+            - Moving multiple objects together.
+            - Organizing complex scenes.
+            - Managing hierarchical transformations.
+        
+
+        
