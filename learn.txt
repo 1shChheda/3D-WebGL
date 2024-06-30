@@ -1,0 +1,106 @@
+First, the basics:
+    - Creating a first scene
+    - Adding objects
+        > maybe a "cube", "donut", "sphere", etc
+    - Choosing the right material
+    - Adding textures
+    - Animating everything
+
+Then, traditional skills
+    - Creating our own geometries (using code)
+    - Adding lights and shadows
+    - Interacting with 3D objects
+    - Adding particles
+
+Then, advanced techniques
+    - Physics
+    - Realistic renders
+    - Writing custom shaders (VERY IMP.)
+    - Adding post processing
+    - Creating our own models with Blender
+
+What is WebGL
+    - Javascript API
+    - you have access to properties, methods to create stuff
+    - Result can be drawn in a <canvas>
+    - uses the Graphic Processing Unit (GPU) of your PC to render high-performance graphics
+        > when JS does normal maths 2+2, etc stuff -> uses CPU 
+        > when drawing/rendering models -> uses GPU
+    - can be used for 2D ("PixiJS") but will focus on 3D
+
+    -> The CPU can do calculations really fast but one-by-one
+        > NOT EXACTLY TRUE: nowadays multiple cores...each core take care of each application
+
+    -> The GPU is a little slower but can do thousands of parallel calculations
+
+    -> To draw a 3D model, the idea is to draw many triangles at the right position. let say 1000 triangles.
+        > Each triangle includes 3 points.
+        > When we want to render our model, the GPU will have to calculate the position of these 3000 points.
+        > Because the GPU can do parallel calculations, it will handle all the triangles points in one raw.
+
+    -> Once the points are placed, the GPU will draw each visible pixel of those triangles.
+        > Yet again, the GPU will handle the thousands and thousands of pixels calculations in one go.
+
+    -> The instructions to place the points and draw the pixels are written in what we call "shaders".
+        > point positions, model transformations, camera coordinates, colorize things, etc
+
+    -> Native WebGL is very hard (but gives good understanding of directly working with GPU to render stuff)
+
+First Scene:
+    - 4 elements to get started:
+        > A scene that will contain objects
+            -> Like a container
+            -> We put objects, models, lights, etc in it
+            -> At some point we ask Three.js to render that scene
+
+        > Some objects
+            -> now we have our Scene.
+            -> We add/create object:
+                _> Primitive geometries (cube, sylinder, sphere, etc)
+                _> Imported models (get model files)
+                _> Particles
+                _> Lights
+                _> etc....
+
+            -> to create a visible object, we first need to create a "Mesh"
+                _> A Mesh is the combination of a 'geometry' (the shape) and a 'material' (how it looks)
+            -> so, now first, we create/select a "geometry"
+            -> then we create/select a "mesh material"
+            -> then we put them together inside a "Mesh" function
+            -> and "add" this mesh to the scene
+
+        > A camera
+            -> Not actually visible
+            -> Serves as a point of view when doing a render
+            -> we can have multiple cameras and switch between them
+            -> also, there are DIFFERENT TYPES
+
+            -> BONUS: to understand camera and view frustum: "https://en.wikipedia.org/wiki/File:ViewFrustum.svg
+
+            -> parameters:
+                _> "Field of View" (fov)
+                    > Vertical vision angle
+                    > high value -> broader view (things stretch out)
+                    > low value -> narrow view (zoomed in view)
+
+                _> "Aspect Ratio"
+                    > width of the render divided by the height of the render
+                    > NOTE: we dont have a render yet, but we can decide on a size now
+
+        > A renderer
+            -> RENDER THE SCENE FROM THE CAMERA POV
+            -> result drawn into a "canvas"
+
+            -> either "You can create a canvas in HTML", OR "let Three.js do it"
+
+            -> NOTE: to create <canvas> before loading the scripts
+
+    - Transform an Object
+        > when we want to move anything like "cube" or "camera" etc (anything we can manipulate)
+
+        > parameters:
+            _> position
+                > has x, y, z properties
+                > Three.js considers the forward/backward axis to be "z"
+            _> rotation
+            _> scale
