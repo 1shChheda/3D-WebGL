@@ -1,43 +1,15 @@
 import './style.css'
 import * as THREE from 'three';
+import { gsap } from 'gsap';
 
 /* Scene */
 const scene = new THREE.Scene();
 
 /* Object (Red Cube) */
-    // alongside use of Scene Graph
-
-    // use of "Group"
-const group = new THREE.Group();
-scene.add(group);
-
-group.position.y = 1;
-group.scale.z = 2;
-group.rotation.x = Math.PI / 4;
-
-const cube1 = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-);
-
-group.add(cube1);
-
-const cube2 = new THREE.Mesh(
-    new THREE.BoxGeometry(0.7, 0.7, 0.7),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
-);
-
-cube2.position.set(2, 0, 0);
-group.add(cube2)
-
-const cube3 = new THREE.Mesh(
-    new THREE.BoxGeometry(0.7, 0.7, 0.7),
-    new THREE.MeshBasicMaterial({ color: 0x0000ff })
-);
-
-cube3.position.set(-2, 0, 0);
-group.add(cube3);
-
+const geometry = new THREE.BoxGeometry(1, 1, 1); // arg: height, width, depth
+const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
 
 /* AxesHelper */
 const axesHelper = new THREE.AxesHelper();
@@ -46,8 +18,8 @@ scene.add(axesHelper);
 /* Sizes (related to Camera) */
     // temporary values
 const sizes = {
-    width: 800,
-    height: 600
+    width: window.innerWidth,
+    height: window.innerHeight
 };
 
 /* Camera */
@@ -77,5 +49,25 @@ const renderer = new THREE.WebGLRenderer({
     // use "setSize()" method to update the size of the renderer
 renderer.setSize(sizes.width, sizes.height);
 
+/* To estimate Frame rate */
+let clock = new THREE.Clock();
+
+/* Create tween using "gsap" */
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
+gsap.to(mesh.position, { duration: 1, delay: 3, x: 0 });
+
+function animate() {
+    window.requestAnimationFrame(animate);
+
+    // elapsedTime: total time that has passed since the clock was started
+        // continues to increase as long as the clock is running.
+    const elapsedTime = clock.getElapsedTime();
+    // console.log(elapsedTime);
+
+    mesh.rotation.z = Math.cos(elapsedTime);
+
     // NOW, RENDER!
-renderer.render(scene, camera); // arg: scene, camera
+    renderer.render(scene, camera); // arg: scene, camera
+}
+
+animate();

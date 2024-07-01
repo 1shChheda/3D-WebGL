@@ -143,5 +143,59 @@ First Scene:
             - Organizing complex scenes.
             - Managing hierarchical transformations.
         
+    - Animations
+        - Animating is like doing stop motion
+            > Move the object
+            > Take a picture
+            > Move the object a bit more
+            > Take a picture
+            > etc.
 
+        - this is "FPS" (frames per second)
+
+        - We need to update objects and do a render on each frame
+        - We are going to do that in a function and call this function with: "window.requestAnimationFrame(...)"
         
+        - IMP: to ensure smooth and consistent animation regardless of the frame rate...
+
+            _> code:
+                /* To estimate Frame rate */
+                let time = Date.now();
+
+                function animate() {
+                    window.requestAnimationFrame(animate);
+
+                    // to calculate the diff. between previousTime and currentTime
+                    const currentTime = Date.now();
+                    const deltaTime = currentTime - time;
+                    time = currentTime;
+
+                    mesh.rotation.z += 0.02 * deltaTime;
+                    mesh.position.x -= 0.01 * deltaTime;
+
+                    // NOW, RENDER!
+                renderer.render(scene, camera); // arg: scene, camera
+                }
+
+                animate();
+            
+            > NOTE: we can also use "Clock" inbuilt Three.js for the same.
+
+            > ex:
+            - Imagine you want your cube to rotate 90 degrees per second. Here’s how deltaTime helps:
+
+            - "Desired Rotation Speed": 90 degrees per second.
+            - "Frame Rate": If the frame rate is 60 frames per second, each frame should rotate the cube by 90 / 60 = 1.5 degrees.
+            - "Delta Time": If the actual frame rate drops to 30 frames per second, deltaTime will be larger, adjusting the rotation so that over one second, the cube still rotates 90 degrees.
+
+            - so, if the FPS is high, the time between to consecutive frames is low, thus deltaTime is low, hence it will multiply with rotation accordingly, to adjust it so that it cube still rotates 90 deg. in 1 sec
+
+            - in contrary, - so, if the FPS is low, the time between to consecutive frames is high, thus deltaTime is high, hence it will multiply with rotation accordingly, to adjust it so that it cube still rotates 90 deg. in 1 sec
+
+            - thus it ADJUSTS THE ROTATIONS ACC. TO FPS, SO THAT ANIMATION BECOMES SMOOTH AND INVARIANT TO FPS
+
+
+    - use of "GSAP":
+        > to have more control over animation, create tweens, create timelines, etc.
+
+        _> "gsap.to(target, vars)": Animates from the current state to the specified values.
