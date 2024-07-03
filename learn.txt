@@ -77,15 +77,26 @@ First Scene:
 
             -> BONUS: to understand camera and view frustum: "https://en.wikipedia.org/wiki/File:ViewFrustum.svg
 
-            -> parameters:
-                _> "Field of View" (fov)
-                    > Vertical vision angle
-                    > high value -> broader view (things stretch out)
-                    > low value -> narrow view (zoomed in view)
+            > "PerspectiveCamera":
+                -> parameters:
+                    _> "Field of View" (fov)
+                        > Vertical vision angle
+                        > high value -> broader view (things stretch out)
+                        > low value -> narrow view (zoomed in view)
 
-                _> "Aspect Ratio"
-                    > width of the render divided by the height of the render
-                    > NOTE: we dont have a render yet, but we can decide on a size now
+                    _> "Aspect Ratio"
+                        > width of the render divided by the height of the render
+                        > NOTE: we dont have a render yet, but we can decide on a size now
+
+            > "Orthographic Camera":
+                -> Here, object's size in the rendered image stays constant regardless of its distance from the camera.
+
+                -> parameters: 
+                    _> Instead of "fov"  "aspect ratio", here, we provide how far the camera can see in each direction
+
+                    _> "left", "right", "top", "bottom"
+
+                    _> then, "near", "far"
 
         > A renderer
             -> RENDER THE SCENE FROM THE CAMERA POV
@@ -199,3 +210,24 @@ First Scene:
         > to have more control over animation, create tweens, create timelines, etc.
 
         _> "gsap.to(target, vars)": Animates from the current state to the specified values.
+
+    - Custom Controls for Camera:
+        > to control the camera position with the mouse.
+        > first, we need to get the mouse coordinates on the page
+
+        > values will be in pixels (not good, since its maximas are not fixed, may vary with the viewport dimensions)
+
+        > we need to adjust (amplitude: 1, & value can be +ve & -ve)
+            -> thus, divide the values with the size of the viewport
+
+        > finally, update the camera.position in the animate fn. with the cursor coords. (before the render)
+
+        > Now, if we dont want to move the object (& focus at the centre of the object regardless of the camera position)
+            -> we use "lookAt()" function
+
+        > Now, if we also want to see the back of the cube, we use some Maths,
+            -> camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 3;
+            -> camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 3;
+            -> camera.position.y = cursor.y * 3;
+
+    - Use of "Controls" in threejs (explore)
