@@ -231,3 +231,55 @@ First Scene:
             -> camera.position.y = cursor.y * 3;
 
     - Use of "Controls" in threejs (explore)
+
+    - Knowledge: [ IMMERSIVE EXPERIENCES ]
+        > Some might see a blurry render and stairs effect on the edges. If so, its because you are testing on a screen with "pixel ratio" greater than 1
+            -> a pixel ratio of "2" means "4" times more pixels to render within a single software pixel unit
+            -> a pixel ratio of "3" means "9" times more pixels to render within a single software pixel unit
+        
+        > to get the current pixel Ratio of device: "window.devicePixelRatio"
+
+        > Handle FullScreen (on event "dblclick", we want to go/leave fullscreen)
+            -> "document.fullscreenElement"
+            -> "canvas.requestFullScreen()" => to enter FullScreen
+            -> "document.exitFullScreen()" => to leave FullScreen
+
+    - Geometries:
+        > Composed of "vertices" (point coordinates in 3D spaces) and faces (triangles that join those vertices to create a surface)
+        > Can be used for meshes but also for particles
+        > Can store more data than the positions (UV coordinates, normals, colors or anything we want)
+
+
+        > All the following geometries inherit from "BufferGeometry"
+        > This class has many built-in methods "translate()", "rotateX()", etc
+            _> NOTE: these methods will not transform mesh object, THEY WILL TRANSFORM "Vertices"
+
+        > combining geometries, we can create pretty complex shapes
+
+        > BufferGeometry:
+            -> first initialize the BufferGeometry class in "geometry" variable
+            -> then initialize the vertices
+            -> setAttribute 
+
+    - Debug UI:
+        > we can create our own or we can use a library:
+            - lil-GUI (most popular)
+            - control-panel
+            - ControlKit
+            - Guify
+            - Oui
+
+        > There are different types of elements you can add to that panel
+            - Range: for numbers with minimum & maximum value
+            - Color: fro colours with various format
+            - Text: for simple textures
+            - Checkbox: for booleans (true/false)
+            - Select: for a choice from a list of values
+            - Button: to trigger FUNCTIONS
+            - Folder: to organize your panel if you have too many elements
+
+        > use "gui.add(...)" to add an element (a tweak)
+
+        > NOTE: we can only manipulate/tweak properties of JS "Objects" in 'gui.add()'
+
+        > NOTE: when triggering function, we have to include it in an Object to use it
