@@ -283,3 +283,20 @@ First Scene:
         > NOTE: we can only manipulate/tweak properties of JS "Objects" in 'gui.add()'
 
         > NOTE: when triggering function, we have to include it in an Object to use it
+
+    - Textures:
+        > textures are images that will cover the surface of the geometries
+
+        > Many different types:
+            - Color
+            - Alpha
+                -> Grayscale img (WHITE visible, BLACK not visible)
+
+            - Height (Displacement)
+                -> Grayscale img
+                -> Move the vertices to create some relief
+                -> Need enough subdivision
+
+            - Normal
+                -> Details related to Lighting
+                -> 
