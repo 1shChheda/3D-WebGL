@@ -1,0 +1,48 @@
+# Blender MTL File: 'sakura.blend'
+# Material Count: 4
+
+newmtl sacura_branch_1
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Vanya\\Desktop\\blender_models\\sakura\\images_as_planes\\sacura_branch_1.png
+map_d C:\\Users\\Vanya\\Desktop\\blender_models\\sakura\\images_as_planes\\sacura_branch_1.png
+
+newmtl sacura_branch_2
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Vanya\\Desktop\\blender_models\\sakura\\images_as_planes\\sacura_branch_2.png
+map_d C:\\Users\\Vanya\\Desktop\\blender_models\\sakura\\images_as_planes\\sacura_branch_2.png
+
+newmtl sacura_branch_3
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Vanya\\Desktop\\blender_models\\sakura\\images_as_planes\\sacura_branch_3.png
+map_d C:\\Users\\Vanya\\Desktop\\blender_models\\sakura\\images_as_planes\\sacura_branch_3.png
+
+newmtl wood
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.016971 0.006064 0.001842
+Ks 0.286644 0.286644 0.286644
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
