@@ -1,87 +1,157 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Basic A-Frame Scene</title>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <!-- <a-asset-item id="tree-obj" src="./assets/models/tree_obj.obj"></a-asset-item> -->
-        <!-- <a-asset-item id="tree-mtl" src="./assets//models/tree_mtl.mtl"></a-asset-item> -->
 
-        <a-asset-item id="sakura-tree-obj" src="./assets/models/sakura_gltf.gltf"></a-asset-item>
-        <!-- <a-asset-item id="sakura-tree-mtl" src="./assets/models/sakura_mtl.mtl"></a-asset-item> -->
+<head>
+  <meta charset="utf-8">
+  <title>Basic A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/r92/examples/js/loaders/FBXLoader.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+</head>
 
-        <a-asset-item id="stegosaurus-glb" src="./assets/models/Fox.gltf"></a-asset-item>
-        <script>
-          console.log("hi")
-        </script>
+<body>
+  <a-scene>
+    <a-assets>
+      <!-- <a-asset-item id="tree-obj" src="./assets/models/tree_obj.obj"></a-asset-item> -->
+      <!-- <a-asset-item id="tree-mtl" src="./assets//models/tree_mtl.mtl"></a-asset-item> -->
 
-        <!-- <img id="box-texture" src="./assets/textures/TCom_MixedMedievalBricks_header.jpg"> -->
-        <img id="box-diffuse" src="./assets/textures/white_marble/white_marble_03_4k_baseColor.png">
-        <img id="box-normal" src="./assets/textures/white_marble/white_marble_03_4k_normal.png">
-        <img id="box-roughness" src="./assets/textures/white_marble/white_marble_03_4k_roughness.png">
-        <img id="box-specular" src="./assets/textures/white_marble/white_marble_03_4k_specular.png">
+      <a-asset-item id="sakura-tree-obj" src="./assets/models/sakura_gltf.gltf"></a-asset-item>
+      <!-- <a-asset-item id="sakura-tree-mtl" src="./assets/models/sakura_mtl.mtl"></a-asset-item> -->
 
-        <img id="ground-diffuse" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Diffuse.jpg">
-        <img id="ground-normal" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Normal.jpg">
-        <img id="ground-roughness" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Roughness.jpg">
-        <img id="ground-displacement" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Displacement.jpg">
-        <img id="ground-ao" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_AO.jpg">
-        <img id="ground-specular" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Specular.jpg">
-        <img id="ground-gloss" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Gloss.jpg">
-      </a-assets>
+      <a-asset-item id="fox-gltf" src="./assets/models/Fox.gltf"></a-asset-item>
 
-      <!-- THOROUGHLY REFER: https://aframe.io/docs/1.6.0/components/material.html -> its gooood -->
-      <a-box
-      material="src: #box-diffuse;
+      <!-- <img id="box-texture" src="./assets/textures/TCom_MixedMedievalBricks_header.jpg"> -->
+      <img id="box-diffuse" src="./assets/textures/white_marble/white_marble_03_4k_baseColor.png">
+      <img id="box-normal" src="./assets/textures/white_marble/white_marble_03_4k_normal.png">
+      <img id="box-roughness" src="./assets/textures/white_marble/white_marble_03_4k_roughness.png">
+      <img id="box-specular" src="./assets/textures/white_marble/white_marble_03_4k_specular.png">
+
+      <img id="ground-diffuse" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Diffuse.jpg">
+      <img id="ground-normal" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Normal.jpg">
+      <img id="ground-roughness" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Roughness.jpg">
+      <img id="ground-displacement" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Displacement.jpg">
+      <img id="ground-ao" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_AO.jpg">
+      <img id="ground-specular" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Specular.jpg">
+      <img id="ground-gloss" src="./assets/textures/grassy_ground/Dry_Pebbles_Grassy_[4K]_Gloss.jpg">
+    </a-assets>
+
+    <!-- THOROUGHLY REFER: https://aframe.io/docs/1.6.0/components/material.html -> its gooood -->
+    <a-box material="src: #box-diffuse;
                 normal-map: #box-normal;
                 roughnessMap: #box-roughness;
-                metalnessMap: #box-specular"
-        width="4"
-        height="4"
-        depth="4"
-        position="0 -2 -9"
-      ></a-box>
+                metalnessMap: #box-specular" width="4" height="4" depth="4" position="0 -2 -9"></a-box>
 
-      <a-plane 
-        material="shader: standard;
+    <a-plane material="shader: standard;
                   src: #ground-diffuse;
                   normal-map: #ground-normal;
                   roughnessMap: #ground-roughness;
                   displacementMap: #ground-displacement;
                   aoMap: #ground-ao;
                   metalnessMap: #ground-specular;
-                  glossMap: #ground-gloss"
-        width="50"
-        height="50"
-        rotation="-90 0 0"
-        position="0 -2 -10"
-        repeat="10 10"
-      ></a-plane>
+                  glossMap: #ground-gloss" width="50" height="50" rotation="-90 0 0" position="0 -2 -10"
+      repeat="10 10"></a-plane>
 
-      <!-- <a-entity
+    <!-- <a-entity
       obj-model="obj: #tree-obj; mtl: #tree-mtl"
       position="0 0 -9"
       ></a-entity> -->
 
-      <a-entity
-        gltf-model="#sakura-tree-obj"
-        position="0 0 -9"
-        scale="2 2 2"
-      ></a-entity>
+    <a-entity gltf-model="#sakura-tree-obj" position="0 0 -9" scale="2 2 2"></a-entity>
 
-      <a-entity
-        gltf-model="#stegosaurus-glb"
-        position="3 -1 -9"
-        scale="0.05 0.05 0.05"
-      ></a-entity>
+    <!-- NOTE: "animation-mixer" is to work with in-built animations -->
+    <!-- REFER: https://docs.arenaxr.org/content/schemas/message/animation-mixer.html -->
 
-      <a-light type="ambient" color="#888"></a-light>
-      <a-light type="directional" position="0 10 0" intensity="1.5"></a-light>
-      <a-light type="directional" position="0 -10 0" intensity="0.5"></a-light>
-    </a-scene>
-  </body>
+    <!-- NOTE: "animation" is to work with our external animations -->
+    <!-- REFER: https://github.com/aframevr/aframe/blob/master/docs/components/animation.md -->
+    <a-entity 
+      id="fox" 
+      gltf-model="#fox-gltf" 
+      position="3 -1 -9" 
+      scale="0.05 0.05 0.05" 
+      animation-mixer="clip: *"
+      animation__1="property: position; to: 3 -1 9; dur: 5000; easing: linear; loop: false"
+      animation__2="property: rotation; to: 0 -90 0; dur: 1000; easing: linear; loop: false; startEvents: anim1-end"
+      animation__3="property: position; to: -4 -1 9; dur: 5000; easing: linear; loop: false; startEvents: anim2-end"
+      animation__4="property: rotation; to: 0 -180 0; dur: 1000; easing: linear; loop: false; startEvents: anim3-end"
+      animation__5="property: position; to: -3 -1 -18; dur: 5000; easing: linear; loop: false; startEvents: anim4-end"
+      animation__6="property: rotation; to: 0 -270 0; dur: 1000; easing: linear; loop: false; startEvents: anim5-end"
+      animation__7="property: position; to: 3 -1 -18; dur: 5000; easing: linear; loop: false; startEvents: anim6-end"
+      animation__8="property: rotation; to: 0 0 0; dur: 1000; easing: linear; loop: false; startEvents: anim7-end"></a-entity>
+
+    <a-light type="ambient" color="#888"></a-light>
+    <a-light type="directional" position="0 10 0" intensity="1.5"></a-light>
+    <a-light type="directional" position="0 -10 0" intensity="0.5"></a-light>
+  </a-scene>
+  <script>
+    const fox = document.getElementById('fox');
+
+    fox.addEventListener('animationcomplete', (event) => {
+      switch (event.detail.name) {
+        case 'animation__1':
+          console.log('animation 1 complete');
+          fox.emit('anim1-end');
+          break;
+        case 'animation__2':
+          console.log('animation 2 complete');
+          fox.emit('anim2-end');
+          break;
+        case 'animation__3':
+          console.log('animation 3 complete');
+          fox.emit('anim3-end');
+          break;
+        case 'animation__4':
+          console.log('animation 4 complete');
+          fox.emit('anim4-end');
+          break;
+        case 'animation__5':
+          console.log('animation 5 complete');
+          fox.emit('anim5-end');
+          break;
+        case 'animation__6':
+          console.log('animation 6 complete');
+          fox.emit('anim6-end');
+          break;
+        case 'animation__7':
+          console.log('animation 7 complete');
+          fox.emit('anim7-end');
+          break;
+        case 'animation__8':
+          console.log('animation 8 complete');
+          fox.emit('anim1-end'); // restartin the sequence
+          break;
+      }
+    });
+
+    // initiate the animation seq.
+    fox.emit('anim1-end');
+
+    // NOTE: the below code is BS! it triggers all the animations together
+    // let anim1 = document.querySelector("[animation__1]").addEventListener('animationcomplete', (e) => {
+    //   console.log("start 1st rot");
+    //   fox_model.emit('anim1-end');
+    // });
+    // let anim2 = document.querySelector("[animation__2]").addEventListener('animationcomplete', (e) => {
+    //   console.log("move str");
+    //   fox_model.emit('anim2-end');
+    // });
+    // let anim3 = document.querySelector("[animation__3]").addEventListener('animationcomplete', (e) => {
+    //   console.log("start 2nd rot");
+    //   fox_model.emit('anim3-end');
+    // });
+    // let anim4 = document.querySelector("[animation__4]").addEventListener('animationcomplete', (e) => {
+    //   fox_model.emit('anim4-end');
+    // });
+    // let anim5 = document.querySelector("[animation__5]").addEventListener('animationcomplete', (e) => {
+    //   fox_model.emit('anim5-end');
+    // });
+    // let anim6 = document.querySelector("[animation__6]").addEventListener('animationcomplete', (e) => {
+    //   fox_model.emit('anim6-end');
+    // });
+    // let anim7 = document.querySelector("[animation__7]").addEventListener('animationcomplete', (e) => {
+    //   fox_model.emit('anim7-end');
+    // });
+  </script>
+
+</body>
+
 </html>
