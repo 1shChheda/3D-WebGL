@@ -1,43 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Model Viewer</title>
+    <title>WebAR Project</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-  </head>
-  <body style="margin: 0; overflow: hidden;">
-    
-    <a-scene
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
-      renderer="logarithmicDepthBuffer: true; precision: medium;"
-      vr-mode-ui="enabled: false"
-      deviceOrientation
-      >
+</head>
 
-      <a-assets>
-        <a-asset-item id="animatedModel" src="./assets/models/mixamo-animated-lowpoly.gltf"></a-asset-item>
-      </a-assets>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene id="scene" embedded arjs="sourceType: webcam; debugUIEnabled: false;" timeout="10000">
+        <!-- Increased timeout -->
+        <a-assets timeout="10000"> <!-- Increased timeout -->
+            <a-asset-item id="cup-model" src="./assets/models/coffee.gltf"></a-asset-item>
+            <a-asset-item id="bottle-model" src="./assets/models/bottle.gltf"></a-asset-item>
+        </a-assets>
 
-      <!-- I've made a custom marker from https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html -->
-      <a-marker type="pattern" url="./assets/markers/pattern-marker.patt">
-        <a-entity
-          id="model"
-          gltf-model="#animatedModel"
-          scale="0.5 0.5 0.5"  
-          position="0 0 0"
-          rotation="-90 0 0"
-          animation-mixer="clip: *; loop: repeat"
-          >
-        </a-entity>
-      </a-marker>
+        <!-- Predefined entity placeholders -->
+        <a-entity id="object-placeholder" scale="0.1 0.1 0.1" visible="false"></a-entity>
 
-      <!-- When the interface loads in, Camera turns on, show this Marker Image infront of the Camera -->
-
-      <a-entity camera></a-entity>
+        <a-camera id="camera"></a-camera>
     </a-scene>
-  </body>
+
+
+    <video id="webcam" autoplay playsinline style="display: none;"></video>
+    <canvas id="output" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+    <script type="module" src="./main.js"></script>
+</body>
+
 </html>

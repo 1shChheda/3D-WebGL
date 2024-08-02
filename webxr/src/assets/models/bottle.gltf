@@ -1,0 +1,361 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 15468,
+      "max": [
+        3.3014144897460938,
+        20.30958366394043,
+        3.3014144897460938
+      ],
+      "min": [
+        -3.3014144897460938,
+        3.0586561479140073e-06,
+        -3.3014144897460938
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 185616,
+      "componentType": 5126,
+      "count": 15468,
+      "max": [
+        0.9998223781585693,
+        1.0,
+        0.9998223781585693
+      ],
+      "min": [
+        -0.9998223781585693,
+        -1.0,
+        -0.9998223781585693
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 15468,
+      "max": [
+        0.9445371627807617,
+        7.424049377441406
+      ],
+      "min": [
+        0.055462390184402466,
+        -0.12046647071838379
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 123744,
+      "componentType": 5126,
+      "count": 15468,
+      "max": [
+        0.6439209580421448,
+        0.7848494648933411
+      ],
+      "min": [
+        0.3560790419578552,
+        -0.09160804748535156
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 247488,
+      "componentType": 5126,
+      "count": 15468,
+      "max": [
+        0.9445371627807617,
+        7.424049377441406
+      ],
+      "min": [
+        0.055462390184402466,
+        -0.12046647071838379
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 77556,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 371232,
+      "componentType": 5126,
+      "count": 4928,
+      "max": [
+        1.9665026664733887,
+        18.05477523803711,
+        1.9665026664733887
+      ],
+      "min": [
+        -1.9665026664733887,
+        17.889705657958984,
+        -1.9665026664733887
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 430368,
+      "componentType": 5126,
+      "count": 4928,
+      "max": [
+        0.9995208978652954,
+        1.0,
+        0.999521791934967
+      ],
+      "min": [
+        -0.9995212554931641,
+        -1.0,
+        -0.9995208978652954
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 371232,
+      "componentType": 5126,
+      "count": 4928,
+      "max": [
+        0.14756622910499573,
+        0.38470223546028137
+      ],
+      "min": [
+        0.14611408114433289,
+        0.38265231251716614
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 410656,
+      "componentType": 5126,
+      "count": 4928,
+      "max": [
+        0.14756622910499573,
+        0.38470223546028137
+      ],
+      "min": [
+        0.14611408114433289,
+        0.38265231251716614
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 310224,
+      "componentType": 5125,
+      "count": 26880,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "packing pro (https://sketchfab.com/packingpro)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/drink-bottle-7d67d22cb6e14178b102f04183c03453",
+      "title": "Drink Bottle"
+    },
+    "generator": "Sketchfab-16.16.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 417744,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 450080,
+      "byteOffset": 417744,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 489504,
+      "byteOffset": 867824,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1357328,
+      "uri": "bottle.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Plastic_rough_finish",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8211145618000169
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Black",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.00219237,
+          0.00219237,
+          0.00219237,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.9993728972811594
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Water Bottle_Plastic rough finish_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3,
+            "TEXCOORD_2": 4
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Water Bottle_Black_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6,
+            "TEXCOORD_0": 8,
+            "TEXCOORD_1": 9
+          },
+          "indices": 10,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "e04f320288494595877a0d978cfcb7f7.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5
+      ],
+      "matrix": [
+        4.359373092651367,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.359373092651367,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.359373092651367,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Water Bottle"
+    },
+    {
+      "mesh": 0,
+      "name": "Water Bottle_Plastic rough finish_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Water Bottle_Black_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

@@ -12,6 +12,10 @@
     "vite-plugin-restart": "^0.4.1"
   },
   "dependencies": {
-    "aframe": "^1.6.0"
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs": "^4.20.0",
+    "@types/three": "^0.167.0",
+    "aframe": "^1.6.0",
+    "three": "^0.167.0"
   }
 }
